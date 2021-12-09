@@ -119,10 +119,13 @@ export default {
   ],
   'POST /api/login/account': async (req: Request, res: Response) => {
     const { password, username, type } = req.body;
+    console.log(11111);
     await waitTime(2000);
     if (password === 'ant.design' && username === 'admin') {
       res.send({
         status: 'ok',
+        token:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDAzMTU0OTcsImlhdCI6MTYzOTAxOTQ5NywiaXNzIjoiSmltbXkiLCJzdWIiOiJ7J3VzZXJfaWQnOiA4fSJ9.qLJx86H5D5TsytknwzYGWw0q-J4hMSZba8PseHFqB8o',
         type,
         currentAuthority: 'admin',
       });

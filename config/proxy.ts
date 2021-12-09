@@ -9,13 +9,30 @@
 export default {
   dev: {
     // localhost:8000/api/** -> https://preview.pro.ant.design/api/**
-    '/api/': {
-      // 要代理的地址
-      target: 'https://preview.pro.ant.design',
-      // 配置了这个可以从 http 代理到 https
-      // 依赖 origin 的功能可能需要这个，比如 cookie
+    // '/api/': {
+    //   // 要代理的地址
+    //   target: 'https://preview.pro.ant.design',
+    //   // 配置了这个可以从 http 代理到 https
+    //   // 依赖 origin 的功能可能需要这个，比如 cookie
+    //   changeOrigin: true,
+    // },
+    '^/api': {
+      // target: 'http://192.168.1.242:12345/',
+      target: 'http://101.251.211.202:9527',
       changeOrigin: true,
+      pathRewrite: {
+        '^/api': '/api',
+      },
     },
+
+    // '^/api': {
+    //   // target: 'http://192.168.1.242:12345/',
+    //   target: 'http://101.251.211.202:9527',
+    //   changeOrigin: true,
+    //   pathRewrite: {
+    //       '^/api': '/api',
+    //   },
+    // },
   },
   test: {
     '/api/': {
